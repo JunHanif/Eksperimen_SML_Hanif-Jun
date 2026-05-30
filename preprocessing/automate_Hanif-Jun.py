@@ -43,12 +43,11 @@ def preprocess_data(file_path, save_dir):
     X_train_scaled = scaler.fit_transform(X_train)
     X_test_scaled = scaler.transform(X_test)
 
-
+    # ubah menjadi dataframe
     X_train_scaled_df = pd.DataFrame(X_train_scaled, columns=X_train.columns)
     X_test_scaled_df = pd.DataFrame(X_test_scaled, columns=X_test.columns)
 
-    
-
+    # simpan hasil preprocessing
     X_train_scaled_df.to_csv(os.path.join(save_dir,'X_train_scaled.csv'), index=False)
     X_test_scaled_df.to_csv(os.path.join(save_dir, 'X_test_scaled.csv'), index=False)
     y_train.to_csv(os.path.join(save_dir, 'y_train.csv'), index=False)
